@@ -5,8 +5,8 @@ exports.sendEmail = async (req, res) =>{
     try {
 
         const transporter = nodemailer.createTransport({
-            service: 'smtp.gmail.com',
-            port: 587,
+            host: 'smtp.gmail.com',
+            port: 465,
             auth: {
                 user: process.env.EMAIL,
                 pass: process.env.PASSWORD
@@ -24,7 +24,7 @@ exports.sendEmail = async (req, res) =>{
         transporter.sendMail(mailOptions, function(error, info){
             if (error){
                 console.log(error);
-                res.send(500, err.message);
+                res.send(500, error.message);
             } else {
                 console.log("Email sent");
                 res.status(200).jsonp(req.body);
