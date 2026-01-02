@@ -12,6 +12,7 @@ const port = process.env.PORT || 4000;
 
 app.use("/api/projects", require("./routes/projects"));
 app.use("/api/emails", require("./routes/emails"));
+app.use("/api/experiences", require("./routes/experiences"));
 
 app.listen(port, '0.0.0.0', () => {
   console.log("Running on", port);
